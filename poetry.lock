@@ -1,0 +1,246 @@
+[[package]]
+name = "asgiref"
+version = "3.6.0"
+description = "ASGI specs, helper code, and adapters"
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[package.extras]
+tests = ["pytest", "pytest-asyncio", "mypy (>=0.800)"]
+
+[[package]]
+name = "black"
+version = "23.1.0"
+description = "The uncompromising code formatter."
+category = "dev"
+optional = false
+python-versions = ">=3.7"
+
+[package.dependencies]
+click = ">=8.0.0"
+mypy-extensions = ">=0.4.3"
+packaging = ">=22.0"
+pathspec = ">=0.9.0"
+platformdirs = ">=2"
+tomli = {version = ">=1.1.0", markers = "python_version < \"3.11\""}
+
+[package.extras]
+colorama = ["colorama (>=0.4.3)"]
+d = ["aiohttp (>=3.7.4)"]
+jupyter = ["ipython (>=7.8.0)", "tokenize-rt (>=3.2.0)"]
+uvloop = ["uvloop (>=0.15.2)"]
+
+[[package]]
+name = "click"
+version = "8.1.3"
+description = "Composable command line interface toolkit"
+category = "dev"
+optional = false
+python-versions = ">=3.7"
+
+[package.dependencies]
+colorama = {version = "*", markers = "platform_system == \"Windows\""}
+
+[[package]]
+name = "colorama"
+version = "0.4.6"
+description = "Cross-platform colored terminal text."
+category = "dev"
+optional = false
+python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,!=3.5.*,!=3.6.*,>=2.7"
+
+[[package]]
+name = "django"
+version = "4.1.7"
+description = "A high-level Python web framework that encourages rapid development and clean, pragmatic design."
+category = "main"
+optional = false
+python-versions = ">=3.8"
+
+[package.dependencies]
+asgiref = ">=3.5.2,<4"
+sqlparse = ">=0.2.2"
+tzdata = {version = "*", markers = "sys_platform == \"win32\""}
+
+[package.extras]
+argon2 = ["argon2-cffi (>=19.1.0)"]
+bcrypt = ["bcrypt"]
+
+[[package]]
+name = "django-cors-headers"
+version = "3.13.0"
+description = "django-cors-headers is a Django application for handling the server headers required for Cross-Origin Resource Sharing (CORS)."
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[package.dependencies]
+Django = ">=3.2"
+
+[[package]]
+name = "graphql-core"
+version = "3.2.3"
+description = "GraphQL implementation for Python, a port of GraphQL.js, the JavaScript reference implementation for GraphQL."
+category = "main"
+optional = false
+python-versions = ">=3.6,<4"
+
+[[package]]
+name = "mypy-extensions"
+version = "1.0.0"
+description = "Type system extensions for programs checked with the mypy type checker."
+category = "dev"
+optional = false
+python-versions = ">=3.5"
+
+[[package]]
+name = "packaging"
+version = "23.0"
+description = "Core utilities for Python packages"
+category = "dev"
+optional = false
+python-versions = ">=3.7"
+
+[[package]]
+name = "pathspec"
+version = "0.11.0"
+description = "Utility library for gitignore style pattern matching of file paths."
+category = "dev"
+optional = false
+python-versions = ">=3.7"
+
+[[package]]
+name = "platformdirs"
+version = "3.0.0"
+description = "A small Python package for determining appropriate platform-specific dirs, e.g. a \"user data dir\"."
+category = "dev"
+optional = false
+python-versions = ">=3.7"
+
+[package.extras]
+docs = ["furo (>=2022.12.7)", "proselint (>=0.13)", "sphinx-autodoc-typehints (>=1.22,!=1.23.4)", "sphinx (>=6.1.3)"]
+test = ["appdirs (==1.4.4)", "covdefaults (>=2.2.2)", "pytest-cov (>=4)", "pytest-mock (>=3.10)", "pytest (>=7.2.1)"]
+
+[[package]]
+name = "python-dateutil"
+version = "2.8.2"
+description = "Extensions to the standard Python datetime module"
+category = "main"
+optional = false
+python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,>=2.7"
+
+[package.dependencies]
+six = ">=1.5"
+
+[[package]]
+name = "six"
+version = "1.16.0"
+description = "Python 2 and 3 compatibility utilities"
+category = "main"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*"
+
+[[package]]
+name = "sqlparse"
+version = "0.4.3"
+description = "A non-validating SQL parser."
+category = "main"
+optional = false
+python-versions = ">=3.5"
+
+[[package]]
+name = "strawberry-graphql"
+version = "0.156.4"
+description = "A library for creating GraphQL APIs"
+category = "main"
+optional = false
+python-versions = ">=3.7,<4.0"
+
+[package.dependencies]
+graphql-core = ">=3.2.0,<3.3.0"
+python-dateutil = ">=2.7.0,<3.0.0"
+typing_extensions = ">=3.7.4,<5.0.0"
+
+[package.extras]
+asgi = ["starlette (>=0.13.6)", "python-multipart (>=0.0.5,<0.0.6)"]
+debug-server = ["starlette (>=0.13.6)", "click (>=7.0,<9.0)", "pygments (>=2.3,<3.0)", "uvicorn (>=0.11.6,<0.21.0)", "python-multipart (>=0.0.5,<0.0.6)", "libcst (>=0.4.7)", "rich (>=12.0.0)"]
+cli = ["click (>=7.0,<9.0)", "pygments (>=2.3,<3.0)", "libcst (>=0.4.7)", "rich (>=12.0.0)"]
+django = ["Django (>=3.2)", "asgiref (>=3.2,<4.0)"]
+channels = ["asgiref (>=3.2,<4.0)", "channels (>=3.0.5)"]
+flask = ["flask (>=1.1)"]
+opentelemetry = ["opentelemetry-api (<2)", "opentelemetry-sdk (<2)"]
+chalice = ["chalice (>=1.22,<2.0)"]
+pydantic = ["pydantic (<2)"]
+fastapi = ["python-multipart (>=0.0.5,<0.0.6)", "fastapi (>=0.65.2)"]
+sanic = ["sanic (>=20.12.2)"]
+aiohttp = ["aiohttp (>=3.7.4.post0,<4.0.0)"]
+debug = ["libcst (>=0.4.7)", "rich (>=12.0.0)"]
+
+[[package]]
+name = "strawberry-graphql-django"
+version = "0.9.2"
+description = "Strawberry GraphQL Django extension"
+category = "main"
+optional = false
+python-versions = ">=3.7,<4.0"
+
+[package.dependencies]
+Django = ">=3.2"
+strawberry-graphql = ">=0.154.0"
+
+[[package]]
+name = "tomli"
+version = "2.0.1"
+description = "A lil' TOML parser"
+category = "dev"
+optional = false
+python-versions = ">=3.7"
+
+[[package]]
+name = "typing-extensions"
+version = "4.5.0"
+description = "Backported and Experimental Type Hints for Python 3.7+"
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[[package]]
+name = "tzdata"
+version = "2022.7"
+description = "Provider of IANA time zone data"
+category = "main"
+optional = false
+python-versions = ">=2"
+
+[metadata]
+lock-version = "1.1"
+python-versions = "^3.10"
+content-hash = "76725058c94fc2b9246899974d01ee3b2658376fa0d5089781efc079ffe97268"
+
+[metadata.files]
+asgiref = []
+black = []
+click = [
+    {file = "click-8.1.3-py3-none-any.whl", hash = "sha256:bb4d8133cb15a609f44e8213d9b391b0809795062913b383c62be0ee95b1db48"},
+    {file = "click-8.1.3.tar.gz", hash = "sha256:7682dc8afb30297001674575ea00d1814d808d6a36af415a82bd481d37ba7b8e"},
+]
+colorama = []
+django = []
+django-cors-headers = []
+graphql-core = []
+mypy-extensions = []
+packaging = []
+pathspec = []
+platformdirs = []
+python-dateutil = []
+six = []
+sqlparse = []
+strawberry-graphql = []
+strawberry-graphql-django = []
+tomli = [
+    {file = "tomli-2.0.1-py3-none-any.whl", hash = "sha256:939de3e7a6161af0c887ef91b7d41a53e7c5a1ca976325f429cb46ea9bc30ecc"},
+    {file = "tomli-2.0.1.tar.gz", hash = "sha256:de526c12914f0c550d15924c62d72abc48d6fe7364aa87328337a31007fe8a4f"},
+]
+typing-extensions = []
+tzdata = []
