@@ -1,4 +1,5 @@
 import os
+import re
 
 """
 Django settings for main project.
@@ -29,7 +30,7 @@ SECRET_KEY = "django-insecure-m&e=v_gjo50lyts3&6*dw2n4ayi8=%109cv9sk@epjn2uxq)ms
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["localhost", "0.0.0.0", ".svc.cluster.local", ".versionlens.com"]
 
 
 # Application definition
@@ -52,6 +53,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = "main.urls"
@@ -126,3 +128,16 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+# Strawberry (GraphQL)
+STRAWBERRY_DJANGO = {
+    "FIELD_DESCRIPTION_FROM_HELP_TEXT": True,
+    "TYPE_DESCRIPTION_FROM_MODEL_DOCSTRING": True,
+}
+
+# CORS
+CORS_ALLOWED_ORIGIN_REGEXES = [
+    r"^https?:\/\/.*" + re.escape(host.strip(".")) + r"(:[0-9]+)?$"
+    for host in ALLOWED_HOSTS
+]
+CORS_ALLOW_CREDENTIALS = True
