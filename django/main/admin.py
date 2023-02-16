@@ -3,7 +3,7 @@ from .models import Product, Basket
 
 
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ("name", "price", "image")
+    list_display = ("id", "name", "price", "image")
 
 
 admin.site.register(Product, ProductAdmin)
