@@ -18,10 +18,10 @@ class Query:
 @strawberry.type
 class Mutation:
     @strawberry.mutation
-    def add_to_basket(self, info, product_id: int, quantity: int) -> Basket:
+    def add_to_basket(self, info, product_id: int) -> Basket:
         product = ProductModel.objects.get(pk=product_id)
         basket = BasketModel.get()
-        basket.products.add(product, through_defaults={"quantity": quantity})
+        BasketItemModel.objects.create(product=product, basket=basket)
         return basket
 
     @strawberry.mutation

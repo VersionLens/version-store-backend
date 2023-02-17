@@ -16,7 +16,6 @@ class Product:
 class BasketItem:
     id: auto
     product: Product
-    quantity: auto
 
 
 @strawberry.django.type(models.Basket)

@@ -13,7 +13,6 @@ class Product(m.Model):
 class BasketItem(m.Model):
     product = m.ForeignKey(Product, on_delete=m.CASCADE)
     basket = m.ForeignKey("Basket", on_delete=m.CASCADE)
-    quantity = m.PositiveSmallIntegerField()
 
 
 class Basket(m.Model):
