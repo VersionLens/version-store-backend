@@ -1,5 +1,6 @@
 import strawberry
-from typing import List
+from strawberry.types import Info
+from typing import List, Optional
 from .types import Product, Basket
 from main.models import Product as ProductModel
 from main.models import Basket as BasketModel
@@ -9,6 +10,7 @@ from main.models import BasketItem as BasketItemModel
 @strawberry.type
 class Query:
     products: List[Product] = strawberry.django.field()
+    product: Product = strawberry.django.field()
 
     @strawberry.django.field
     def basket(self, info) -> Basket:
