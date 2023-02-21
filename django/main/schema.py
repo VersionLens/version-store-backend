@@ -27,9 +27,8 @@ class Mutation:
         return basket
 
     @strawberry.mutation
-    def remove_from_basket(self, info, item_id: int) -> Basket:
-        item = BasketItemModel.objects.get(pk=item_id)
-        item.delete()
+    def remove_from_basket(self, info, product_id: int) -> Basket:
+        BasketItemModel.objects.filter(product__pk=product_id).delete()
         return BasketModel.get()
 
 
