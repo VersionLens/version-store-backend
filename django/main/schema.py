@@ -11,6 +11,7 @@ from main.models import BasketItem as BasketItemModel
 class Query:
     products: List[Product] = strawberry.django.field()
     product: Product = strawberry.django.field()
+    category: Category = strawberry.django.field()
     categories: List[Category] = strawberry.django.field()
 
     @strawberry.django.field
