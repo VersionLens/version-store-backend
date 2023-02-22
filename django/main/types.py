@@ -8,6 +8,7 @@ from . import models
 class Category:
     id: auto
     name: auto
+    products: List["Product"]
 
 
 @strawberry.django.type(models.Product)
