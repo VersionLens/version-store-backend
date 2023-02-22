@@ -11,6 +11,10 @@ class Product:
     price: auto
     image: auto
 
+    @strawberry.django.field
+    def category(self) -> str:
+        return self.category
+
 
 @strawberry.django.type(models.BasketItem)
 class BasketItem:
