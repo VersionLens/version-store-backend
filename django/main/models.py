@@ -1,4 +1,5 @@
 from django.db import models as m
+from django.conf import settings
 
 
 class Product(m.Model):
@@ -24,3 +25,14 @@ class Basket(m.Model):
             return Basket.objects.first()
         else:
             return Basket.objects.create()
+
+
+class Review(m.Model):
+    product = m.ForeignKey(Product, on_delete=m.CASCADE, related_name="reviews")
+    user = m.ForeignKey(
+        settings.AUTH_USER_MODEL, on_delete=m.CASCADE, related_name="reviews"
+    )
+    comment = m.TextField()
+
+    def __str__(self):
+        return f"{self.user} on product {self.product}: {self.comment}"
