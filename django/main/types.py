@@ -4,16 +4,19 @@ from typing import List
 from . import models
 
 
+@strawberry.django.type(models.Category)
+class Category:
+    id: auto
+    name: auto
+
+
 @strawberry.django.type(models.Product)
 class Product:
     id: auto
     name: auto
     price: auto
     image: auto
-
-    @strawberry.django.field
-    def category(self) -> str:
-        return self.category
+    category: Category
 
 
 @strawberry.django.type(models.BasketItem)

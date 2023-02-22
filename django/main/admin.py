@@ -1,9 +1,9 @@
 from django.contrib import admin
-from .models import Product, Basket
+from .models import Product, Basket, Category
 
 
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ("id", "name", "price", "image")
+    list_display = ("id", "name", "price", "category", "image")
 
 
 admin.site.register(Product, ProductAdmin)
@@ -19,3 +19,6 @@ class BasketAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Basket, BasketAdmin)
+
+
+admin.site.register(Category)

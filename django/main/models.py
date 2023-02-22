@@ -2,21 +2,22 @@ from django.db import models as m
 from django.utils.translation import gettext_lazy as _
 
 
+class Category(m.Model):
+    name = m.CharField(max_length=30)
+
+    class Meta:
+        verbose_name_plural = "categories"
+
+    def __str__(self):
+        return self.name
+
+
 class Product(m.Model):
     name = m.CharField(max_length=50, unique=True)
     price = m.PositiveSmallIntegerField()
     image = m.ImageField(upload_to="products")
-
-    class Category(m.TextChoices):
-        CLOTHING = "Clothing"
-        ACCESSORIES = "Accessories"
-        BATHROOM_AND_KITCHEN = "Bathroom & Kitchen"
-        ELECTRONICS = "Electronics"
-
-    category = m.CharField(
-        max_length=30,
-        choices=Category.choices,
-        default=Category.ACCESSORIES,
+    category = m.ForeignKey(
+        Category, on_delete=m.CASCADE, related_name="products", null=True, blank=True
     )
 
     def __str__(self):
