@@ -1,0 +1,39 @@
+"""Basket(id)"""
+type Basket {
+  id: ID!
+  items: [BasketItem!]!
+}
+
+"""BasketItem(id, product, basket)"""
+type BasketItem {
+  id: ID!
+  product: Product!
+}
+
+type DjangoImageType {
+  name: String!
+  path: String!
+  size: Int!
+  url: String!
+  width: Int!
+  height: Int!
+}
+
+type Mutation {
+  addToBasket(productId: Int!): Basket!
+  removeFromBasket(itemId: Int!): Basket!
+}
+
+"""Product(id, name, price, image)"""
+type Product {
+  id: ID!
+  name: String!
+  price: Int!
+  image: DjangoImageType!
+}
+
+type Query {
+  products: [Product!]!
+  product(pk: ID!): Product!
+  basket: Basket!
+}
