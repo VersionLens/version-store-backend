@@ -1,6 +1,9 @@
 #!/bin/sh
 
-cp -r /app/* /code
+if [ -z "$(ls -A /code)" ]; then
+  cp -r /app/* /code
+fi
+
 cd /code/django
 python manage.py migrate --no-input
 DJANGO_SUPERUSER_USERNAME=demo DJANGO_SUPERUSER_EMAIL=foo@bar.com DJANGO_SUPERUSER_PASSWORD=demo python manage.py createsuperuser --no-input
