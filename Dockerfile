@@ -21,8 +21,10 @@ COPY poetry.lock pyproject.toml /app/
 RUN poetry config virtualenvs.create false \
     && poetry install --no-interaction --no-ansi
 
-COPY ./django/ /app/
+COPY . /app/
 
 EXPOSE 8000
 
-CMD "/app/docker-entrypoint.sh"
+RUN mkdir /code
+
+CMD ["/app/django/docker-entrypoint.sh"]
