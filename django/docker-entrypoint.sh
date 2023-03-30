@@ -1,7 +1,7 @@
 #!/bin/sh
 
 if [ -z "$(ls -A /code)" ]; then
-  cp -r /app/* /code
+  cp -ar /app/. /code
 fi
 
 cd /code/django
